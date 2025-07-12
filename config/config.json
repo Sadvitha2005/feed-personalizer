@@ -1,0 +1,32 @@
+{
+  "model_type": "lightgbm",
+
+  "model_path": {
+    "lightgbm": "models/lightGBM_model_with_columns.pkl"
+  },
+
+  "data_path": "data/processed/scored_posts_with_users.csv",
+  "target_column": "target_label",
+
+  "feature_columns": {
+    "lightgbm": [
+        "karma", "time_match_score", "user_follows_tag", "is_buddy_post",
+        "Post Type", "Weekday Type", "Time Periods", "karma_bucket"
+    ]
+  },
+
+  "hyperparameters": {
+    "lightgbm": {
+        "n_estimators": [100, 200],
+        "learning_rate": [0.05, 0.1],
+        "max_depth": [3, 4],
+        "num_leaves": [31],
+        "subsample": [0.8]
+    }
+  },
+
+  "enable_shap": false,
+  "enable_eval": true,
+  "enable_corr": false,
+  "model_threshold": 0.5
+}
