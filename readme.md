@@ -16,15 +16,12 @@ This project is a FastAPI-based microservice that ranks posts for users using a 
 
 ## 🔧 Project Setup
 
-### 🖥️ Local Setup (Without Docker)
-
 #### 📂 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/feed-personalizer.git
-cd feed-personalizer
+git clone https://github.com/Sadvitha2005/feed-personalizer.git
 ```
-#### ⚙️ 2. Manual Setup
-Follow these steps if you're setting up manually on your local machine:
+#### ⚙️ 2. Setup the Environment
+Follow these steps to set up the Python Environment manually on your local machine:
 ##### Step 1: Create a Virtual Environment
 ```bash
 python -m venv myenv
@@ -106,3 +103,22 @@ docker run -p 8000:8000 feed-personalizer
 ```
 ---
 ## 🔁 Retrain the Model
+
+#### 1. Prepare the training dataset:
+- The training data is in csv format.
+- Place it in the data/processed directory.
+- If the name is different update the name with already exixting "scored_posts_with_users.csv".
+#### 2. Model Config:
+- Update the feature Names in config.json accordingly.
+#### 3. Run the training Script:
+```bash
+python training/train_lightgbm.py
+```
+#### 4. What it does:
+- Trains a new LightGBM model using your data.
+- Saves the model and its required feature columns to:
+  ```bash
+  models/lightGBM_model_with_columns.pkl
+  ```
+### Note:
+For manipulating existing datasets, write a python Script in Scripts/ folder.
